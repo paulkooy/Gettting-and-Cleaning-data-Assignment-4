@@ -1,0 +1,64 @@
+---
+title: "ReadMe"
+author: "Paul van der Kooy"
+date: "18 February 2016"
+output: html_document
+---
+
+Course assignment 4
+
+Documentation for the scripts and workflow of assignment 4
+
+Step 1:
+Load the data in a data folder and unZIP it (manual action no script required)
+Original location of data:    https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
+Local location of data:       folder: UCI HAR Dataset
+Download date: "2016-02-21"
+
+
+Step 2:
+Analyse the data files Train and Test and document them in the CookBook (See: CookBook.Rmd)
+
+Step 3:
+Develop function run_analysis which executes all the steps required to analysis and merge the Test and Training datasets and convert them into a tidy dataset
+     Load relevant libraries and set working directory
+     Set limit of rows to read for development and testing (-1 is read all)
+     Copy over the input data to a local folder
+     Unzip manual
+     Register date of download  
+     Read relevant input data
+          Read the Subject (person doing the activity)
+          Read the movement (registered movements of the subject while doing an activity)
+          Read the Activity (type of activity the subject is doing)
+          
+     1. Merge the training and the test sets to create one data set
+          
+     2. Extract only the measurements on the mean and standard deviation for each measurement
+          Read features.txt to determine the columns required (mean and std)
+          Filter the feature data to only those columns that calulate mean() or std()
+          Strip movement data to required columns only (note: create 1st dummy column to set the dimension)
+          Remove the dummy column and give reduced dataset tidy column names
+          
+     3. Uses descriptive activity names to name the activities in the data set
+          Replace activity codes by activity descriptions
+          
+     4. Appropriately labels the data set with descriptive variable names.
+          Create list of tidy varable names for filtered columns
+          Remove parenthesis and hyphen characters and move columnnames to lowercase
+          
+     Merge Subject, Activity and Movement data into one table
+     Write the tidy dataset into an output file "tidy-movement-data.csv"
+          
+     5. Create a second, independent tidy data set with the average of each variable for each activity and each subject
+          group the full tidy data set by subject and activity
+          Select all columns besides the 2 grouping columns
+          Take the mean for each selected and grouped column
+          Write output to file
+     
+Step 4:
+Document R code and final dataset in ReadMe and CookBook
+
+Step 5:
+Submit assignemnt in GitHub
+
+Notes:    Some steps are longer than could be coded, but this is done to make the steps clearer and easiler to understand
